@@ -1,16 +1,18 @@
-import java.io.BufferedReader;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.Buffer;
+import java.util.Date;
 
-public class Empleado {
-    public String nombre;
+class Empleado {
+    String nombre;
+    Date birthDate;
 
-
-    public String mostrar() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        nombre= br.readLine();
-        return "El nombre del empleado es "+nombre+".";
+    Empleado(String name, Date birthDate) {
+        this.nombre = name;
+        this.birthDate = birthDate;
     }
+
+    @Override
+    public String toString() {
+        return "Empleado: " + nombre + " (nacido en 19" + birthDate.getYear() + ")";
+    }
+
 }
